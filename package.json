@@ -1,0 +1,16 @@
+{
+  "name": "session-api",
+  "version": "1.0.0",
+  "description": "Sessions api with JWT",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "author": "andrs.dev@gmail.com",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
