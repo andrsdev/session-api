@@ -2,7 +2,7 @@ import express from "express";
 import crypto from "crypto";
 import database from "./database.js";
 import { generateToken } from "./utils.js";
-import { authMiddleware } from "./middlewares.js";
+import { sessionMiddleware } from "./middlewares.js";
 
 function routes(app) {
   const router = express.Router();
@@ -16,7 +16,7 @@ function routes(app) {
     res.send("Session initialized");
   });
 
-  router.put("/data", authMiddleware, function (req, res) {
+  router.put("/data", sessionMiddleware, function (req, res) {
     const { uid } = res.locals;
     const body = req.body;
 
@@ -29,7 +29,7 @@ function routes(app) {
     res.send("Saved");
   });
 
-  router.get("/data", authMiddleware, function (req, res) {
+  router.get("/data", sessionMiddleware, function (req, res) {
     const { uid } = res.locals;
     const data = database[uid];
 
